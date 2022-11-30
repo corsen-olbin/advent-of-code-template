@@ -33,8 +33,8 @@ defmodule AdventOfCodeEx.CLI do
   """
   def parse_args(argv) do
     OptionParser.parse(argv,
-      switches: [help: :boolean],
-      aliases: [h: :help]
+      switches: [help: :boolean, example: :boolean],
+      aliases: [h: :help, e: :example]
     )
     |> elem(1)
     |> args_to_internal_representation()
