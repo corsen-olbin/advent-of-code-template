@@ -4,6 +4,7 @@ defmodule AdventOfCodeEx.Boundary.AdventOfCodeManager do
   def run(day, part, use_example \\ false) do
     import_file(day, use_example)
     |> run_day_part({day, part})
+    |> print_result()
   end
 
   def run_day_part(txt_input, day_part) do
@@ -14,16 +15,20 @@ defmodule AdventOfCodeEx.Boundary.AdventOfCodeManager do
     end
   end
 
+  def print_result({_, answer}) do
+    IO.puts(answer)
+  end
+
   defp import_file(day, use_example) do
     file_name = if use_example do
       "../inputs/example_inputs/day#{day}example.txt"
     else
-      "../inputs/puzzle_inputs/day#{day}.txt"
+      "./lib/advent_of_code_ex/inputs/puzzle_inputs/day#{day}.txt"
     end
 
     case File.read(file_name) do
       {:ok, body} -> body
-      {:error, reason} -> raise reason
+      {:error, reason} -> raise :file.format_error(reason)
     end
   end
 end

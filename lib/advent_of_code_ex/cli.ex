@@ -1,9 +1,11 @@
 defmodule AdventOfCodeEx.CLI do
-  @default_part 1
   @moduledoc """
   Handle the command line parsing and the dispatch to
   return the answer for the given Advent of Code Day/Part
   """
+  alias AdventOfCodeEx.Boundary.AdventOfCodeManager
+
+  @default_part 1
 
   @spec main(any) :: no_return
   def main(argv) do
@@ -20,8 +22,8 @@ defmodule AdventOfCodeEx.CLI do
     System.stop(0)
   end
 
-  def process({day, part}) do
-    IO.puts("Reached the main part #{day} #{part}")
+  def process({day, part, example}) do
+    AdventOfCodeManager.run(day, part, example)
     System.stop(0)
   end
 
@@ -40,12 +42,16 @@ defmodule AdventOfCodeEx.CLI do
     |> args_to_internal_representation()
   end
 
+  def args_to_internal_representation([day, part, use_example]) do
+    {String.to_integer(day), String.to_integer(part), use_example}
+  end
+
   def args_to_internal_representation([day, part]) do
-    {String.to_integer(day), String.to_integer(part)}
+    {String.to_integer(day), String.to_integer(part), false}
   end
 
   def args_to_internal_representation([day]) do
-    {String.to_integer(day), @default_part}
+    {String.to_integer(day), @default_part, false}
   end
 
   # bad arg or --help
