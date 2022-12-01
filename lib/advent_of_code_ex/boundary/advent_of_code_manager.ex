@@ -21,7 +21,7 @@ defmodule AdventOfCodeEx.Boundary.AdventOfCodeManager do
 
   defp import_file(day, use_example) do
     file_name = if use_example do
-      "../inputs/example_inputs/day#{day}example.txt"
+      "./lib/advent_of_code_ex/inputs/example_inputs/day#{day}example.txt"
     else
       "./lib/advent_of_code_ex/inputs/puzzle_inputs/day#{day}.txt"
     end
