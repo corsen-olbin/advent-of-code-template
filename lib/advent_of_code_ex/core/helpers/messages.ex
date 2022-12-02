@@ -3,7 +3,7 @@ defmodule AdventOfCodeEx.Core.Helpers.Messages do
     {:unimplemented, "D#{day}p#{part} is unimplemented"}
   end
 
-  def answer(day, part, answer) do
+  def answer(answer, day, part) do
     {:answer, "D#{day}p#{part} answer: #{answer}"}
   end
 end
