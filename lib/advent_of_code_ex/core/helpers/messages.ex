@@ -4,6 +4,6 @@ defmodule AdventOfCodeEx.Core.Helpers.Messages do
   end
 
   def answer(day, part, answer) do
-    {:answer, "D#{day}p#{part}: #{answer}"}
+    {:answer, "D#{day}p#{part} answer: #{answer}"}
   end
 end
