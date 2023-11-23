@@ -1,21 +1,32 @@
 # AdventOfCodeEx
 
-**TODO: Add description**
+Solutions to Advent of Code written in Elixir
 
-## Installation
+Make sure to change the code inside of Day_x_.ex to return single integer solution.
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `advent_of_code_ex` to your list of dependencies in `mix.exs`:
+Example:
+```
+def part1(input) do
+  input
+  |> read_input
+  |> calc_answer // returns single integer to plug into Advent of Code website
+end
 
-```elixir
-def deps do
-  [
-    {:advent_of_code_ex, "~> 0.1.0"}
-  ]
+def read_input(input) do
+  // convert input to readable data structure
+end
+
+def calc_answer(readable_data_structure) do
+  // do work to return answer
 end
 ```
 
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at <https://hexdocs.pm/advent_of_code_ex>.
+## Running
+
+### Windows
+To compile:
+`mix escript.build`
+
+To run:
+`escript advent_of_code_ex <day> <part>`
 
