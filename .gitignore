@@ -25,5 +25,5 @@ advent_of_code_ex-*.tar
 # Temporary files, for example, from tests.
 /tmp/
 
-# binary file created by "mix escript.build
+# binary file created by "mix escript.build"
 /advent_of_code_ex

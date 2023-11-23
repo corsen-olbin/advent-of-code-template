@@ -6,7 +6,7 @@ defmodule AdventOfCodeEx.MixProject do
       app: :advent_of_code_ex,
       escript: escript_config(),
       version: "0.1.0",
-      elixir: "~> 1.14.2",
+      elixir: "~> 1.15.7",
       start_permanent: Mix.env() == :prod,
       deps: deps()
     ]
