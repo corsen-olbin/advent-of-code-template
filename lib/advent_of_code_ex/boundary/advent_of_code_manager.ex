@@ -8,8 +8,9 @@ defmodule AdventOfCodeEx.Boundary.AdventOfCodeManager do
   end
 
   def run_code({day, _} = day_part, use_example) do
-    import_file(day, use_example)
-    |> run_day_part(day_part)
+    with file <- import_file(day, use_example) do
+      :timer.tc(fn -> run_day_part(file, day_part) end)
+    end
   end
 
   def run_day_part(txt_input, day_part) do
